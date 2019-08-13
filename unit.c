@@ -106,6 +106,7 @@ void register_test(const char *restrict suite, const char *restrict name, test_c
 int start_tests(void)
 {
 	ssize_t failed_test_count = 0;
+	ssize_t test_count = 0;
 
     for (int i = 0; i < suite_count; ++i) {
         struct suite *s = test_suites[i];
@@ -126,6 +127,7 @@ int start_tests(void)
             tc->imp(s, tc);
 
             failed_test_count += tc->failed;
+            test_count++;
 
             printf(
                 "\t%s \x1b[0mTest case \"\x1b[1m%s\x1b[0m\" %s.\n",
@@ -143,6 +145,14 @@ int start_tests(void)
 			s->failed
 		);
     }
+
+    printf(
+		"\x1b[1m%zu\x1b[0m tests run across \x1b[1m%zu\x1b[0m suites with "
+		"\x1b[1m%zu\x1b[0m passed and \x1b[1m%zu\x1b[0m failed.\n\n",
+		test_count, suite_count,
+		test_count - failed_test_count, 
+		failed_test_count
+	);
 
     // Return 0 if there were no failed tests, otherwise return 1.
     return (failed_test_count > 1);
