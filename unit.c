@@ -134,6 +134,14 @@ int start_tests(void)
                 tc->failed == 0 ? "passed" : "failed"
             );
         }
+
+        printf(
+			"\t\x1b[1m%ld\x1b[0m tests run with "
+			"\x1b[1m%ld\x1b[0m passed and \x1b[1m%d\x1b[0m failed.\n\n",
+			s->count, 
+			s->count - s->failed, 
+			s->failed
+		);
     }
 
     // Return 0 if there were no failed tests, otherwise return 1.
