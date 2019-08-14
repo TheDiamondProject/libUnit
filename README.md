@@ -1,4 +1,4 @@
-# libUnit
+# libUnit ![BuildCIBadge](https://travis-ci.org/TheDiamondProject/libUnit.svg?branch=master)
 **libUnit** is part of _The Diamond Project_ and is a simple custom unit testing
 mechanism for all C components and libraries of the project.
 
