@@ -155,7 +155,7 @@ int start_tests(void)
 	);
 
     // Return 0 if there were no failed tests, otherwise return 1.
-    return (failed_test_count > 1);
+    return (failed_test_count >= 1);
 }
 
 
@@ -182,12 +182,12 @@ TEST_CASE(Alpha, Test1)
 
 TEST_CASE(Beta, First)
 {
-	ASSERT_EQ(0, 1);
+	ASSERT_NEQ(0, 1);
 }
 
 TEST_CASE(Alpha, Test2)
 {
-	// ASSERT_EQ_STR("Hello", "Hello");
+	ASSERT_EQ_STR("Hello", "Hello");
 }
 
 int main(int argc, const char **argv)

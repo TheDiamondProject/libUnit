@@ -1,3 +1,5 @@
 language: c
-script: make run-all-tests
+script:
+    - make test
+    - ./test
 

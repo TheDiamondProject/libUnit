@@ -41,6 +41,7 @@ typedef void(*test_case_func_t)(void *, void *);
 	}
 
 #define ASSERT_EQ(_a, _b) ASSERT((_a) == (_b))
+#define ASSERT_NEQ(_a, _b) ASSERT((_a) != (_b))
 #define ASSERT_EQ_STR(_a, _b) ASSERT(strcmp((_a), (_b)) == 0)
 
 #define TEST_CASE(_suite, _name) \

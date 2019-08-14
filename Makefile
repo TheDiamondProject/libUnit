@@ -22,7 +22,6 @@
 
 .PHONY: all
 all: test
-	./test
 
 .PHONY: run-all-tests
 run-all-tests: test
