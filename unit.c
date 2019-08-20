@@ -61,7 +61,7 @@ static struct suite *test_suite_named(const char *name)
     }
 
     // Do we have room for a new suite?
-    if (suite_count > suite_capacity) {
+    if (suite_count >= suite_capacity) {
         suite_capacity <<= 1; // Double the amount of space.
         test_suites = realloc(test_suites, sizeof(struct suite *) * suite_capacity);
     }
@@ -82,7 +82,7 @@ static struct suite *test_suite_named(const char *name)
 static struct test_case *test_case_named(struct suite *s, const char *restrict name)
 {
     // Do we have room a for a new test case?
-    if (s->count > s->capacity) {
+    if (s->count >= s->capacity) {
         s->capacity <<= 1; // Double the amount of space.
         s->cases = realloc(s->cases, sizeof(struct test_case *) * s->capacity);
     }
