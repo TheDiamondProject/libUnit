@@ -171,6 +171,8 @@ void fail_assertion(void *a, void *b, const char *condition)
 
 	s->failed++;
 	tc->failed++;
+
+	printf("\t\x1b[1;30mFailed: %s\x1b[0m\n", condition);
 }
 
 #if defined(INC_MAIN)
